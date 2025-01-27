@@ -1,0 +1,49 @@
+#psql -U links -d links
+# \dt 
+# steps to see the tables in Links database
+
+
+fun createDb() {
+    var db = database "links";
+
+    var test = table "accounts" with (id: Int, accounttype: String, balance: Float) from db;
+ 
+    # list all tables based on any db type initialized
+    # check database types on links file load?
+    # Test with test repo (covid one) to see if auto table creation works
+
+
+    # Create
+    insert accounts values (id, accounttype, balance) [
+        (id=1, accounttype = "Current", balance = 100.0),
+        (id=2, accounttype = "Savings", balance = 5.0),
+        (id=3, accounttype = "Current", balance = 12.5)
+    ];
+    # Read
+    var accounts_entries = query{for (x <-- accounts) [x]};
+
+    # Update
+    update (val <-- accounts) 
+        where (val.id == 1) 
+        set (id=1, accounttype="Current", balance=42.7);
+
+    # Delete
+    delete (val <-- accounts)
+        where (val.id==3);
+        
+    ()
+}
+
+fun run(){
+    createDb();
+    ()
+}
+
+fun test(){
+    createDb();
+    run();
+    ()
+}
+
+createDb()
+

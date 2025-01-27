@@ -1,0 +1,19 @@
+var count = 0;
+
+fun incrementCounter() client {
+  let counterNode = domGetDocumentNodeById("counter");
+  domSetTextContent(counterNode, string(count))
+}
+
+fun renderCounterPage() client {
+  let button = <input type="button" value="Click me!" l:onclick="{incrementCounter()}" />;
+  let counterDisplay = <p id="counter">0</p>;
+  let pageContent = <div>{button}{counterDisplay}</div>;
+  replaceDocument(pageContent)
+}
+
+fun main() {
+  renderCounterPage()
+}
+
+main()

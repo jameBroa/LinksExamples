@@ -1,0 +1,2 @@
+# LinksExamples
+This repo contains several Links files which were used to test the capability of <a href="https://github.com/jameBroa/LinksLSP">LinksLSP</a>. Most files in this repo don't do anything meaningful. Rather, they exist to cover the various ways Links can be written. Feel free to use this repo as a resource to learn Links or to test <a href="https://github.com/jameBroa/LinksLSP">LinksLSP</a> yourself.

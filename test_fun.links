@@ -1,0 +1,5 @@
+fun foo(x, second) {
+    1+x+second
+}
+
+3+foo(2)

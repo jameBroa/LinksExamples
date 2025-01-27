@@ -1,0 +1,37 @@
+fun reverseString(str) {
+  implode(reverse(explode(str)))
+}
+
+fun getProp(id, propName) { domGetPropertyFromRef(getNodeById(id), propName) }
+fun setProp(id, propName, newVal) { domSetPropertyFromRef(getNodeById(id), propName, newVal) }
+
+fun mainPage() {
+  fun handleEvents() {
+    receive {
+      case UpdateLabel ->
+        var value = getProp("toReverse", "value");
+        setProp("label", "innerHTML", reverseString(value));
+        handleEvents()
+    }
+  }
+
+  var evtHandler = spawnClient { handleEvents() };
+
+  page
+    <html>
+      <body>
+        <form>
+          <input type="text" id="toReverse"
+            l:onkeyup="{evtHandler ! UpdateLabel}"></input>
+        </form>
+        <div id="label"></div>
+      </body>
+    </html>
+}
+
+fun main() {
+  addRoute("/", fun(_) { mainPage() });
+  servePages()
+}
+
+main()

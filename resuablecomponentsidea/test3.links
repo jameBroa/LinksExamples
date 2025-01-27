@@ -1,0 +1,42 @@
+
+#WORDS
+
+fun incrementCounter() {
+    var counterNode = getNodeById("counter");
+    var counterNodeXML = getValue(counterNode); #returns XML value
+    var currentCounterStr = getTextContent(counterNodeXML);
+    print("test")
+    #var currentCounterInt = stringToInt(currentCounterStr);
+    #var newCount = currentCounterInt + 1;
+
+    #var newElem = <p id="counter">{intToXml(newCount)}</p>;
+
+    #replaceNode(newElem, counterNode)
+}
+
+
+fun mainPage(_) {
+    var button = <input type="button" value="Click me!" l:onclick="{incrementCounter()}" />;
+    var counterDisplay = <p id="counter">0</p>;
+    var pageContent = <div>{button}{counterDisplay}</div>;
+
+    page 
+        <html>
+            <head>
+            </head>
+            <body>
+                <#>{button}</#>
+                <#>{counterDisplay}</#>
+                <#>{pageContent}</#>
+            </body>
+        </html>
+
+}
+
+
+fun main(){
+    addRoute("/", mainPage);
+    servePages()
+}
+
+main()

@@ -1,0 +1,24 @@
+
+fun fun1() {
+    ()
+}
+
+fun fun2() {
+    fun1();
+    ()
+}
+
+fun fun3() {
+    fun1();
+    ()
+}
+
+fun fun4() {
+    fun1();
+    ()
+}
+
+fun fun5() {
+    fun1();
+    ()
+}

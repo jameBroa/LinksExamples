@@ -1,0 +1,32 @@
+
+fun mainPage(){ 
+    page
+        <html>
+            <head>
+            </head>
+            <body><p>test
+                </p>
+                <h1>
+                    This is a test
+                </h1><p>this is another test</p>
+                <pp>
+                    <ksgfhjdfksjgn><boob></boob></ksgfhjdfksjgn>
+                </pp>
+                <h1>
+                    this is a test
+                </h1>
+                <h1>
+                    this is another test
+                </h1>
+
+            </body>
+        </html>
+}
+
+fun main(){
+    var x = 1;
+    var y = 2;
+    var z = 1000;
+    var sum = x+y+z;
+    sum
+}

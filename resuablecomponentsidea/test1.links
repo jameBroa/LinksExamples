@@ -1,0 +1,48 @@
+
+
+fun printSomething() {
+    getDocumentNode();
+    ()
+}
+
+fun dummy() client {
+  ()
+}
+
+fun header(){
+    <div>
+        <p>This is a header</p>
+    </div>
+}
+
+fun baseComponent(){
+    var counter = 0;
+    var counterText = intToXml(counter);
+    <div>
+        <button l:onclick="{printSomething()}" >Click me!</button>
+        <#>{counterText}</#>
+    </div>
+}
+
+
+fun mainPage(_){
+    var counter = 0;
+    page
+        <html>
+            <head>
+
+            </head>
+            <body>
+                {header()}
+                {baseComponent()}
+            </body>
+        </html>
+}
+
+
+fun main() {
+    addRoute("/", mainPage);
+    servePages()
+}
+
+main()

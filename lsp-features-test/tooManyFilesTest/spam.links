@@ -1,0 +1,29 @@
+fun createXML(){
+    page
+        <html>
+            <body>
+                <p> hello
+                </p>
+                <h1>
+                    hello
+                </h1>
+                <p>
+                    <h1>
+                        test
+                    </h1>
+                    <h1>
+                    </h1>
+                </p>
+            </body>
+        </html>
+}
+
+fun main(){
+    createXML();
+    1
+}
+
+fun test(){
+    main();
+    1
+}

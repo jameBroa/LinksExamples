@@ -1,0 +1,16 @@
+fun createPage(){
+    page
+        <html>
+            <head>
+            </head>
+            <body>
+                <div>
+                    <h1>Hello World!</h1>
+                    <p>This is a test</p>
+                </div>
+                <div>
+                <a><p>Hello</p></a>
+                </div>
+            </body>
+        </html>
+}

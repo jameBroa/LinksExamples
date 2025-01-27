@@ -1,0 +1,60 @@
+
+# This doesn't work, but its part of the paper
+# fun helloWorld() {
+    #print("Hello\n");
+    #print("World!\n");
+#}
+
+fun helloWorld() {
+    print("Hello\n");
+    print("World!\n")
+}
+
+#helloWorld()
+
+
+fun helloWorldWithHandlers() {
+    do Print("Hello\n");
+    do Print("With effect handlers\n");
+    do Banana("Custom operation\n"); # test operation
+    do ReversePrint("Reverse print\n") # flipped continuation
+}
+
+
+fun helloWorldDemonstrationOrder() {
+    do Print("Hello\n");
+    do Print("World!\n")
+}
+
+# m: context
+# the operation is defined in Capital letters, and then handled within the switch case
+# there are two inputs, the val, and k/l (we define it) then we do some operation and the subsequent function
+# which is defined by k/l (again however we define it)
+
+# Motivation:
+# This is important because we can control the order of execution when we consider the continutation k/l
+
+fun forward(m) {
+    handle(m()) {
+        case <Print (val) => k> -> print(val); k(())
+        case <Banana (val) => l> -> print(val); l(())
+        case <ReversePrint (val) => k> -> k(()); print(val)
+        case x -> ()
+    }
+}
+
+fun reverse(m) {
+    handle(m()) {
+        case <Print (val) => k> -> k(()); print(val)
+        case x -> ()
+    }
+}
+
+fun main(){
+    forward(helloWorldDemonstrationOrder);
+    reverse(helloWorldDemonstrationOrder)
+}
+
+# To run w/ handlers, run linx program w/ --enable-handlers
+main()
+

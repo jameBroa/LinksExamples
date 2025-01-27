@@ -1,0 +1,19 @@
+sig test: (Int, Int) -> String
+fun test() {
+    ()
+}
+# This is a comment which should have highlighting!!!!!!!
+sig convertDatabaseToXml: (Database) -> Xml
+fun convertDatabaseToXml(database) {
+    <div>Hello!</div>
+    <h1>test!!!</h1>
+}
+
+#type providers: 
+fun main() {
+    print("test \n");
+    var blue = 1+1;
+    ()
+}
+
+main()

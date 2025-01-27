@@ -1,0 +1,46 @@
+fun main(){
+    typename Drink = [|Water |Coke | Sprite | AppleJuice | OrangeJuice | Pepsi|];
+
+    sig showDrink : (Drink) -> String
+
+    fun showDrink(drink){
+        switch(drink){ # Must contain all possible Drink based on definition of sig
+            case Water -> "Water" 
+            case Coke -> "Coke" 
+            case Sprite -> "Sprite" 
+            case AppleJuice -> "Apple Juice" 
+            case OrangeJuice -> "Orange Juice" 
+            case Pepsi -> "Pepsi" 
+        }
+    }
+
+    sig drinkRating : (Drink) -> Int
+    fun drinkRating(drink){
+        switch(drink){ # Must contain all possible Drink based on definition of sig
+            case Water -> 100 
+            case Coke -> 40
+            case Sprite -> 60
+            case AppleJuice -> 50
+            case OrangeJuice -> 40
+            case Pepsi -> 70
+        }
+    }
+
+
+    # returns a rating based on the combination
+    sig combineDrinks : (Drink, Drink) -> Int
+    fun combineDrinks(drinkOne, drinkTwo) {
+        var firstRating = drinkRating(drinkOne);
+        var secondRating = drinkRating(drinkTwo);
+        firstRating * secondRating
+    }
+
+    var firstDrink = Water;
+    var secondDrink = Pepsi;
+    var combinedRating = combineDrinks(firstDrink, secondDrink);
+    print(intToString(combinedRating));
+    print("\n");
+    ()
+}
+
+main()

@@ -1,0 +1,10 @@
+var x = 2;
+var y = x + 2;
+var z = y+x;
+var a = y+z;
+var TTTT = "test";
+print("x");
+fun banana() {
+    ()
+}
+()

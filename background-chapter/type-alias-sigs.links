@@ -1,0 +1,41 @@
+typename AccountType = [|Current|Savings|None|];
+typename AccountDetails = (accountType: AccountType, balance: Float);
+typename TransactionType = [|Deposit|Withdrawal|Transfer|];
+typename Transaction = (sourceAccount: AccountDetails, destinationAccount: AccountDetails, 
+transactionType: TransactionType, amount: Float);
+
+sig deductMoney: (AccountDetails, Float) -> AccountDetails
+fun deductMoney(account, amountToDeduct) {
+    (
+    accountType=account.accountType,
+    balance=(-.)(account.balance, amountToDeduct)
+    )
+}
+
+sig addMoney: (AccountDetails, Float) -> AccountDetails
+fun addMoney(account, amountToAdd) {
+    (
+        accountType = account.accountType,
+        balance = (+.)(account.balance, amountToAdd)
+    )
+}
+
+sig moveMoney: (AccountDetails, AccountDetails, Float) -> Transaction
+fun moveMoney(source, destination, amountMoney){
+    var new_source = deductMoney(source, amountMoney);
+    var new_destination = addMoney(destination, amountMoney);
+    (sourceAccount = new_source, 
+    destinationAccount = new_destination, 
+    transactionType = Transfer, 
+    amount = amountMoney)
+}
+
+fun main() {
+    var my_account = (accountType=Current, balance=100.0);
+    var your_account = (accountType=Current, balance=0.0);
+    var amount_to_transfer = 100.0;
+    var our_transaction = moveMoney(my_account, your_account, amount_to_transfer);
+    ()
+}
+
+main()

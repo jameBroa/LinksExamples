@@ -1,0 +1,75 @@
+
+fun header() {
+    <div class="header">
+        <p>Test</p>
+    </div>
+}
+
+fun blob(children) {
+    <div class="centered-container">
+        <p>above</p>
+        {children}
+        <p>below</p>
+    </div>
+}
+
+
+fun main() {
+    page 
+        <html>
+            <head>
+                <style>
+                    body {{
+                        margin:0;
+                        background-color:white;
+                    }}
+                    h1,p {{
+                        margin:0;
+                    }}
+                    .header {{
+                        width:100vw;
+                        background-color:#24292e;
+                        height:50px;
+                        display:flex;
+                        flex-direction:row;
+                        justify-content:center;
+                        align-items:center;
+                    }}
+                    .header p {{
+                        color:white;
+                    }}
+
+                    .main-body {{
+                        display:flex;
+                        flex-direction:column;
+                        background-color:#fafbfc;
+                        height:100vh;
+                        align-items:center;
+                        gap:4rem;
+                    }}
+
+                    .centered-container {{
+                        display:flex;
+                        flex-direction:row;
+                        height:200px;
+                        width:200px;
+                        justify-content:center;
+                        align-items:center;
+                        background-color:#2dba4e;
+                    }}
+
+
+                </style>
+                <title>Page 3 </title>
+                <link ref="stylesheet" type="text/css" href="/css/test.css"/>
+            </head>
+            <body>
+                <div class="main-body">
+                    {header()}
+                    {blob()}
+                </div>
+            </body>
+        </html>
+}
+
+main()

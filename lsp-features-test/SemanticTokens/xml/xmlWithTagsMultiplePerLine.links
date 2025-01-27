@@ -1,0 +1,9 @@
+fun xml(){
+    page
+        <html>
+            <body>
+                <button type="button">
+                </button>
+            </body>
+        </html>
+}

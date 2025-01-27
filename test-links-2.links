@@ -1,0 +1,43 @@
+import Test3;
+
+
+fun testPage(_) {
+    page
+        <html>
+            <head>
+            </head>
+            <body>
+            <h1>test page</h1>
+            </body>
+        </html>
+}
+
+fun htmlHead(){
+    <head> <link href="/test-links/css/test.css" rel="StyleSheet"/> </head>
+}
+
+fun component() {
+    <p>inserted component</p>
+}
+
+fun mainPage(_) {
+  page
+   <html> {htmlHead()}
+        <body>
+            <h1 class="foo">test</h1>
+            <p>te3st</p>
+            <div id="bar"/>
+            {component()}
+            {component()}
+            {component()}
+        </body>
+   </html>
+}
+
+fun main() {
+    addRoute("/3", fun(_) {Test3.main()});
+    addRoute("/", mainPage);
+    servePages()
+}
+
+main()

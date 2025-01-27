@@ -1,0 +1,16 @@
+
+fun mainPage(){ 
+    page
+        <html>
+            <head>
+            </head><body><p>test</p></body>
+        </html>
+}
+
+fun main(){
+    addRoute("/", mainPage);
+    servePages();
+    ()
+}
+
+main()

@@ -1,0 +1,48 @@
+
+
+fun getProp(id, propName) {
+    domGetPropertyFromRef(getNodeById(id), propName)
+}
+
+fun setProp(id, propName, newVal){
+    domSetPropertyFromRef(getNodeById(id), propName, newVal)
+}
+
+fun mainPage() {
+    fun handleEvents() {
+        receive {
+            case UpdateLabel ->
+                var value = getProp("label", "innerHTML");
+                var newValue = intToString(stringToInt(value)+1);
+                setProp("label", "innerHTML", newValue);
+                handleEvents()
+        }
+    }
+
+    var evtHandler = spawnClient{handleEvents()};
+
+     page
+        <html>
+            <body>
+                <button type="button" id="button-input">
+                    Click me to increment!
+                    </button>
+                <p id="label">0</p>
+                <#><p>nice!</p></#> #This is a comment
+                <#>
+                    <p id="nice">
+                        Hello! #hello
+                    </p>
+                </#>
+
+            </body>
+        </html>
+}
+
+
+fun main() {
+    addRoute("/", fun(_) {mainPage()});
+    servePages()
+}
+
+main()

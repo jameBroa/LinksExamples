@@ -1,0 +1,34 @@
+fun createXML(param){
+    page
+        <html>
+            <div 
+            id="my-div"
+            class="my-superdiv"
+            >
+
+                <p>
+                {param}
+                Hello
+                </p>
+            </div>
+        </html>
+}
+
+fun used(){
+    1
+}
+
+fun unused(param1, param2){
+    2+param1+param2+sort(param1, param2)
+} 
+
+fun sort(param1, param2){
+    var x = 10;
+    unused()+2+param1+param2+x
+}
+
+fun main(){
+    used() + 2
+}
+
+main()

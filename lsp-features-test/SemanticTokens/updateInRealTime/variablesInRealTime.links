@@ -1,0 +1,9 @@
+fun main(a,b,c){
+    var sum = a+b+c;
+    sum
+}
+
+fun main2(param1, param2, param3){
+    var sum = param1+param2;
+    sum
+}
